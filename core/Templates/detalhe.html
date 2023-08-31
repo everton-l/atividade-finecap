@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Reserva - {{ reserva.nome_empresa }}
+{% endblock %}
+
+{% block center %}
+
+    <h1>{{ reserva.nome_empresa }}</h1>
+    <h3>{{ reserva.categoria_empresa }}</h3>
+    <h3>{{ reserva.quitado }}</h3>
+    <h3>{{ reserva.stand }}</h3>
+
+{% endblock %}
