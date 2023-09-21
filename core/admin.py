@@ -4,7 +4,7 @@ from .models import *
 
 
 class ReservaAdmin(admin.ModelAdmin):
-    list_display = ('cnpj', 'nome_empresa', 'categoria_empresa', 'quitado')
+    list_display = ('cnpj', 'nome_empresa', 'categoria_empresa', 'quitado', 'data')
 
 class StandAdmin(admin.ModelAdmin):
     list_display = ('localizacao', 'valor')

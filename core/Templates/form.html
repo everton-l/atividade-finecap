@@ -11,23 +11,28 @@
         </div>
         
         <div class="mb-3">
-            <label for="nome" class="form-label">Categoria da empresa</label>
+            <label for="categoria" class="form-label">Categoria da empresa</label>
             {{ form.categoria_empresa }}
         </div>
 
         <div class="mb-3">
-            <label for="nome" class="form-label">CNPJ da empresa</label>
+            <label for="cnpj" class="form-label">CNPJ da empresa</label>
             {{ form.cnpj }}
+        </div>
+
+        <div class="mb-3">
+            <label for="data" class="form-label">Data</label>
+            {{ form.data }}
         </div>
         
 
         <div class="mb-3">
-            <label for="nome" class="form-label">Quitado?</label>
-            {{ form.quitado }}
+            <label for="{{ form.quitado.id_for_label }}" class="form-label">Quitado?</label>
+            <input type="checkbox" name="{{ form.quitado.name }}" id="{{ form.quitado.id_for_label }}">
         </div>
 
         <div class="mb-3">
-            <label for="nome" class="form-label">Stand</label>
+            <label for="stand" class="form-label">Stand</label>
             {{ form.stand }}
         </div>
 

@@ -5,6 +5,19 @@
 
   <a href="{% url 'reserva_criar' %}" class="btn btn-success mb-3">Novo Cadastro</a>
 
+  <form method="get" action="">
+    <input type="search" name="nome_empresa">
+    <input type="search" name="valor_stand">
+    <input type="date" name="data">
+    <input type="radio" name="quitado" value="True">
+    <input type="radio" name="quitado" value="False">
+
+    <button type="submit">Filtrar</button>
+  </form>
+
+
+
+
   <table class="table table-bordered">
     <thead>
       <tr>

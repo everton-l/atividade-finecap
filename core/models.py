@@ -15,7 +15,8 @@ class Reserva(models.Model):
     nome_empresa = models.CharField(max_length=100)
     categoria_empresa = models.CharField(max_length=100)
     quitado = models.BooleanField(blank=True)
-    stand = models.OneToOneField(Stand, on_delete=models.CASCADE)
+    stand = models.ForeignKey(Stand, on_delete=models.CASCADE)
+    data = models.DateField(null=True)
 
     def __str__(self) -> str:
         return self.nome_empresa
