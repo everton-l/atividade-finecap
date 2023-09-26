@@ -6,7 +6,29 @@ from .forms import ReservaForm, Reserva
 
 def index(request):
     reserva = Reserva.objects.all()
-    context = {'reservas':reserva}
+
+    nome_empresa = request.GET.get('nome_empresa')
+    quitado = request.GET.get('quitado')
+    valor_stand = request.GET.get('valor_stand')
+    data_reserva = request.GET.get('data_reserva')
+
+    if nome_empresa:
+        reserva = reserva.filter(nome_empresa__icontains=nome_empresa)
+    if quitado is not None:
+        reserva = reserva.filter(quitado=quitado)
+    if valor_stand is not None and valor_stand != '':
+        reserva = reserva.filter(stand__valor=valor_stand)
+    if data_reserva:
+        reserva = reserva.filter(data_reserva=data_reserva)
+
+    context = {
+        'reservas': reserva,
+        'nome_empresa': nome_empresa,
+        'quitado': quitado,
+        'valor_stand': valor_stand,
+        'data_reserva': data_reserva,
+    }
+
     return render(request, 'index.html', context)
 
 def reserva_criar(request):

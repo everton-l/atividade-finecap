@@ -5,6 +5,19 @@
 
   <a href="{% url 'reserva_criar' %}" class="btn btn-success mb-3">Novo Cadastro</a>
 
+
+  <form method="get" action="">
+    <input type="search" name="nome_empresa" placeholder="Nome da empresa">
+    <input type="number" name="valor_stand" placeholder="Valor do Stand">
+    <input type="date" name="data" placeholder="Data da Reserva">
+    <label for="quitado_sim">Sim</label>
+    <input type="radio" name="quitado" value="True" id="quitado_sim">
+    <label for="quitado_nao">Não</label>
+    <input type="radio" name="quitado" value="False" id="quitado_nao">
+
+    <button type="submit" class="btn btn-success">Filtrar</button>
+</form>
+
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -15,10 +28,10 @@
     <tbody>
       {% for reserva in reservas %}  
       <tr>
-        <td><a href="{% url 'reserva_detalhe' id=reserva.id %}">{{ reserva.nome_empresa }}</a></td>
+        <td>{{ reserva.nome_empresa }}</td>
         <td>{{ reserva.categoria_empresa }}</td>
         <td>
-          <a href="{% url 'reserva_editar' id=reserva.id %}" class="btn btn-primary btn-sm">Editar</a>
+          <a href="{% url 'reserva_detalhe' id=reserva.id %}" class="btn btn-primary btn-sm">Detalhar</a>
           <a href="{% url 'reserva_remover' id=reserva.id %}" class="btn btn-danger btn-sm">Remover</a>
         </td>
       </tr>

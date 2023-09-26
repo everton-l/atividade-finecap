@@ -6,9 +6,10 @@
 
 {% block center %}
 
-    <h1>{{ reserva.nome_empresa }}</h1>
-    <h3>{{ reserva.categoria_empresa }}</h3>
-    <h3>{{ reserva.quitado }}</h3>
-    <h3>{{ reserva.stand }}</h3>
+    <h1>nome da empresa: {{ reserva.nome_empresa }}</h1>
+    <h3>categoria: {{ reserva.categoria_empresa }}</h3>
+    <h3>quitado: {{ reserva.quitado }}</h3>
+    <h3>data: {{ reserva.data }}</h3>
+    <h3>stand: {{ reserva.stand }}</h3>
 
 {% endblock %}
