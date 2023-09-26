@@ -31,6 +31,7 @@ def index(request):
 
     return render(request, 'index.html', context)
 
+
 def reserva_criar(request):
     if request.method == 'POST':
         form = ReservaForm(request.POST, request.FILES)
