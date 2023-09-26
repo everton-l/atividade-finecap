@@ -18,6 +18,11 @@
             <label for="{{ form.cnpj.id_for_label }}" class="form-label">CNPJ da Empresa</label>
             {{ form.cnpj }}
         </div>
+
+        <div class="mb-3">
+            <label for="data" class="form-label">Data</label>
+            {{ form.data }}
+        </div>
         
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="{{ form.quitado.id_for_label }}" name="{{ form.quitado.name }}">

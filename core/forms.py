@@ -14,3 +14,8 @@ class ReservaForm(forms.ModelForm):
             'data': forms.DateInput(attrs={'class':'form-control'})
         }
 
+class FiltroReservaForm(forms.Form):
+    nome_empresa = forms.CharField(label='Nome da Empresa', required=False)
+    quitado = forms.BooleanField(label='Quitado', required=False)
+    valor_stand = forms.DecimalField(label='Valor do Stand', required=False, min_value=0.00)
+    data_reserva = forms.DateField(label='Data da Reserva', required=False)
