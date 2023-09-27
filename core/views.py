@@ -11,23 +11,23 @@ def index(request):
     nome_empresa = request.GET.get('nome_empresa')
     quitado = request.GET.get('quitado')
     valor_stand = request.GET.get('valor_stand')
-    data_reserva = request.GET.get('data_reserva')
+    data = request.GET.get('data')
 
     if nome_empresa:
         reserva = reserva.filter(nome_empresa__icontains=nome_empresa)
-    if quitado is not None:
+    if quitado is not None and quitado != '':
         reserva = reserva.filter(quitado=quitado)
     if valor_stand is not None and valor_stand != '':
         reserva = reserva.filter(stand__valor=valor_stand)
-    if data_reserva:
-        reserva = reserva.filter(data_reserva=data_reserva)
+    if data:
+        reserva = reserva.filter(data=data)
 
     context = {
         'reservas': reserva,
         'nome_empresa': nome_empresa,
         'quitado': quitado,
         'valor_stand': valor_stand,
-        'data_reserva': data_reserva,
+        'data_reserva': data,
     }
 
     return render(request, 'index.html', context)
