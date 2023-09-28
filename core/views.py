@@ -2,6 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ReservaForm, Reserva
 from .forms import FiltroReservaForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
 
@@ -22,8 +23,18 @@ def index(request):
     if data:
         reserva = reserva.filter(data=data)
 
+    paginator = Paginator(reserva, 5)
+    page = request.GET.get('page')
+
+    try:
+        reservas = paginator.page(page)
+    except PageNotAnInteger:
+        reservas = paginator.page(1)
+    except EmptyPage:
+        reservas = paginator.page(paginator.num_pages)
+
     context = {
-        'reservas': reserva,
+        'reservas': reservas,
         'nome_empresa': nome_empresa,
         'quitado': quitado,
         'valor_stand': valor_stand,

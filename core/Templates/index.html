@@ -16,6 +16,7 @@
     <input type="radio" name="quitado" value="False" id="quitado_nao">
 
     <button type="submit" class="btn btn-success">Filtrar</button>
+    <a href="{% url 'index' %}" class="btn btn-success">Limpar</a>
   </form>
 
   <table class="table table-bordered">
@@ -39,4 +40,20 @@
     
     </tbody>
   </table>
+
+{% if reservas.has_previous or reservas.has_next %}
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {% if reservas.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ reservas.previous_page_number }}">Anterior</a></li>
+        {% endif %}
+        <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+        <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+        <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+        {% if reservas.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ reservas.next_page_number }}">Próxima</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+{% endif %}
 {% endblock %}

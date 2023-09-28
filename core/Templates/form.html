@@ -20,7 +20,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="data" class="form-label">Data</label>
+            <label for="{{ form.data.id_for_label }}" class="form-label">Data da Reserva</label>
             {{ form.data }}
         </div>
         
@@ -32,11 +32,6 @@
         <div class="mb-3">
             <label for="{{ form.stand.id_for_label }}" class="form-label">Stand</label>
             {{ form.stand }}
-        </div>
-
-        <div class="mb-3">
-            <label for="{{ form.data.id_for_label }}" class="form-label">Data da Reserva</label>
-            {{ form.data }}
         </div>
 
         <button type="submit" class="btn btn-primary">Enviar</button>
